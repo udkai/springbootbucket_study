@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.balance.mapper.TeacherMapper">
+	<select id="list" resultType="com.balance.model.Teacher">
+		SELECT t.id,t.name,t.sex,t.age from t_teacher t
+	</select>
+	<!-- <delete id="delUsers">
+		delete from test_user where id in
+		<foreach collection="list" item="item" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</delete> -->
+</mapper>

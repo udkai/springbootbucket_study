@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.balance.mapper.StudentMapper">
+	<select id="list" resultType="com.balance.model.Student">
+		SELECT t.id,t.name,t.sex,t.age from t_student t
+	</select>
+	<select id="query" parameterType="com.balance.model.Student" resultType="com.balance.model.Student">
+		SELECT t.id,t.name,t.sex,t.age from t_student t where 1=1
+		<if test="name!=null">
+			and t.name=#{name}
+		</if>
+	</select>
+	<select id="findById">
+		SELECT * FROM t_student t where t.id=#{id}
+	</select>
+	<insert id="save">
+		INSERT INTO t_student (name,sex,age)  values(#{name},#{sex},#{age})
+	</insert>
+	<!-- <delete id="delUsers">
+		delete from test_user where id in
+		<foreach collection="list" item="item" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</delete> -->
+</mapper>
